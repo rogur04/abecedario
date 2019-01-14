@@ -16,3 +16,14 @@ before_script:
  - psql -c "create user decide with password 'decide'" 
  - psql -c "create database decide owner decide"
  - python manage.py migrate
+services:
+  - postgresql
+addons:
+  postgresql: "9.6"
+global:
+  - PGPORT=5432
+
+before_script:
+ - psql -c "create user decide with password 'decide'" 
+ - psql -c "create database decide owner decide"
+ - python manage.py migrate
